@@ -11,7 +11,7 @@
 		<% @posts.each do |post| %>
 			<h2><%= post.title %></h2>
 			<p>Posted <%= post.created_at.in_time_zone("Eastern Time (US & Canada)").to_s(:long) %></p>
-			<p><%= post.content %></p>
+			<%=raw post.content %>
 		<% end %>
 	</div>
 </div>
