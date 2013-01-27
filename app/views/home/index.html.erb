@@ -1,0 +1,17 @@
+<div class="row">
+	<div class "twelve columns centered">
+		<h1>The Silver Thread</h1><p>Abraham Stimson's blog</p>
+		<%= link_to 'New Post', new_post_path %> | 
+		<%= link_to 'Login', posts_path %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="twelve columns centered">
+		<% @posts.each do |post| %>
+			<h2><%= post.title %></h2>
+			<p>Posted <%= post.created_at.in_time_zone("Eastern Time (US & Canada)").to_s(:long) %></p>
+			<p><%= post.content %></p>
+		<% end %>
+	</div>
+</div>
