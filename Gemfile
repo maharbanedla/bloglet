@@ -15,7 +15,7 @@ gem 'coffee-rails', '3.2.2'
 
 gem 'compass-rails'
 gem 'zurb-foundation'
-
+gem 'markdown'
 gem 'uglifier', '1.2.3'
 end
 
