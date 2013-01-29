@@ -7,7 +7,7 @@
 
 <p>
   <b>Content:</b>
-  <%= @post.content %>
+  <%= raw Redcarpet.new(@post.content).to_html %>
 </p>
 
 <p>

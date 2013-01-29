@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-
+gem 'redcarpet', '1.17.2'
+gem 'nokogiri'
 group :development do
 gem 'sqlite3', '1.3.5'
 end
@@ -15,7 +16,6 @@ gem 'coffee-rails', '3.2.2'
 
 gem 'compass-rails'
 gem 'zurb-foundation'
-gem 'markdown', '1.0.0'
 gem 'uglifier', '1.2.3'
 end
 
