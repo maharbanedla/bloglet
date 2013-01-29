@@ -15,13 +15,11 @@
 		<%= f.text_field :title, :cols => '46', :placeholder => "Post Title", :autofocus => 'true' %>
 	</div>
 	<div class="field">
-		<%= f.label :private %>
-		<%= f.check_box :private %>
-	</div>
-	<div class="field">
 		<%= f.text_area :content, :rows => '12', :cols => '80' %>
 	</div>
-
+	<div class="field">
+	    <%= f.check_box :private %> <%= f.label :private %>
+	</div>
 	<div class="actions">
 		<%= f.submit :class => 'button' %>
 	</div>
