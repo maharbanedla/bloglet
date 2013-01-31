@@ -1,26 +1,30 @@
 <%= form_for(@post) do |f| %>
-	<% if @post.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <% if @post.errors.any? %>
+	<div id="error_explanation">
+	    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-			<ul>
-				<% @post.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
+	    <ul>
+		<% @post.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		<% end %>
+	    </ul>
+	</div>
+    <% end %>
 
-	<div class="field">
-		<%= f.text_field :title, :cols => '46', :placeholder => "Post Title", :autofocus => 'true' %>
-	</div>
-	<div class="field">
-		<%= f.text_area :content, :rows => '12', :cols => '80' %>
-	</div>
-	<div class="field">
-	    <%= f.check_box :private %> <%= f.label :private %>
-	</div>
-	<div class="actions">
-		<%= f.submit :class => 'button' %>
-	</div>
+    <div class="field">
+	<%= f.text_field :title, :cols => '46', :placeholder => "Post Title", :autofocus => 'true' %>
+    </div>
+    <div class="field">
+	<%= f.text_area :content, :rows => '12', :cols => '80' %>
+    </div>
+    <div class="field">
+	<%= f.check_box :private %> <%= f.label :private %>
+    </div>
+    <div class="field">
+	<%= f.check_box :draft %> <%= f.label :draft %>
+	<p id="notice"><%= notice %></p>
+    </div>
+    <div class="actions">
+	<%= f.submit :class => 'button' %>
+    </div>
 <% end %>

@@ -45,10 +45,15 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
+	  unless @post.draft 
+	      format.html { redirect_to @post, notice: 'Post was successfully created.' }
+	      format.json { render json: @post, status: :created, location: @post }
+	  else
+	      format.html { render action: "edit", notice: 'Post created and draft successfully saved.' }
+	      flash[:notice] = "Post created and draft successfully saved at " + @post.updated_at.to_s
+	  end
       else
-        format.html { render action: "new" }
+        format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -61,8 +66,13 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
+	  unless @post.draft 
+	      format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+	      format.json { head :no_content }
+	  else
+	      format.html { render action: "edit", notice: 'Draft successfully saved.' }
+	      flash[:notice] = "Draft successfully saved at " + @post.updated_at.to_s
+	  end
       else
         format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }

@@ -1,7 +1,10 @@
 Blog::Application.routes.draw do
   get "home/index"
 
-  resources :posts
+  resources :posts do
+       get :save, :on => :member
+  end
+
 
 
   # The priority is based upon order of creation:
