@@ -71,7 +71,7 @@ class PostsController < ApplicationController
 	      format.json { head :no_content }
 	  else
 	      format.html { render action: "edit", notice: 'Draft successfully saved.' }
-	      flash[:notice] = "Draft successfully saved at " + @post.updated_at.to_s
+	      flash[:notice] = "Draft saved at " + @post.updated_at.to_s
 	  end
       else
         format.html { render action: "edit" }
